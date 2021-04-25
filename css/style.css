@@ -9,13 +9,18 @@
 
 .center {
   position: absolute;
+  padding-top: 70px;
+  font-weight: 400;
+  color: #263c7f;
   top: calc(50% - 100px);
   left: calc(50% - 100px);
   width: 200px;
   height: 200px;
   border-radius: 50%;
   border: solid 1px gray;
-  line-height: 200px; }
+  line-height: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px; }
 
 .arrows-container {
   width: 100%;
