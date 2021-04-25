@@ -1,0 +1,297 @@
+
+//variables
+
+$border: solid 1px gray;
+
+$start-delay: .5s;
+$first-dot-delay: 1.3s;
+$second-dot-delay: 1.6s;
+$third-dot-delay: 1.9s;
+$delay-first: 3s;
+$delay-beetween: 3.5s;
+$delay-second: 4.2s;
+
+$grow-duration: .5s;
+$center-grow-duration: .5s;
+$dot-apper-duration: .2s;
+
+
+.main-anim-container {
+    * {
+        box-sizing: border-box;
+    }
+    width: 600px;
+    height: 400px;
+    margin: 150px auto;
+    text-align: center;
+    position: relative;
+}
+.center {
+    position: absolute;
+    top: calc(50% - 100px);
+    left: calc(50% - 100px);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: $border;
+    line-height: 200px;
+}
+
+.arrows-container {
+    width: 100%;
+    height: 100%;
+}
+.arrow {
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+    height: 30px;
+    width: 40px;
+    background-color: #fff;
+    position: absolute;
+    margin: 0;
+    z-index: 4;
+}
+.arrow-first {
+    top: -28px;
+    left: calc(50% - 18px);
+}
+.arrow-second {
+    right: -15px;
+    top: 71%;
+    transform: rotate(120deg);
+}
+.arrow-third {
+    left: -15px;
+    top: 71%;
+    transform: rotate(240deg);
+}
+
+.dot-inside {
+    width: 10px;
+    height: 10px;
+    background-color: #263C7F;
+    border-radius: 50%;
+    position: relative;
+    top: 4px;
+    left: 4px;
+}
+
+
+.orbit-arrow {
+    position: absolute;
+    .upper, .bottom {
+        width: 10px;
+        height: 2px;
+        background-color: gray;
+    }
+    .upper {
+        transform: rotate(60deg);
+    }
+    .bottom {
+        transform: rotate(-60deg);
+        margin-top: 6px;
+    }
+    &.first {
+        left: calc(50% - 4px);
+        top: -5px;
+    }
+    &.second {
+        top: 74%;
+        left: 22px;
+        transform: rotate(-120deg);
+    }
+    &.third {
+        top: 78%;
+        right: 32px;
+        transform: rotate(120deg);
+    }
+}
+
+.dot-subcontainer {
+    position: relative; 
+    width: 100%;
+    height: 100%;
+}
+.dot-container {
+    position: absolute;
+    transform: scale(0);
+    animation: dots-appear 1 $dot-apper-duration forwards; 
+    p {
+        transform: scale(0);
+        animation: dots-appear 1 $dot-apper-duration forwards; 
+        animation-delay: $delay-beetween;
+        text-align: center;
+        position: absolute;
+        width: 100px;
+        color: #263c7f;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    &.first {
+        animation-delay: $first-dot-delay;
+        p {
+            top: -100px;
+            left: -40px;
+        }
+        left: calc(50% - 10px);
+        top: -10px;
+    }
+    &.second {
+        animation-delay: $second-dot-delay;
+        top: 71%;
+        left: 15px;
+        p {
+            left: -120px;
+            top: 20px
+        }
+    }
+    &.third {
+        animation-delay: $third-dot-delay;
+        top: 71%;
+        right: 15px;
+        p {
+            top: 20px;
+            left: 50px;
+        }
+    }
+}
+
+
+//Blue arrows appear animation
+
+.arrows {
+    opacity: 0;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: solid 25px #263C7F;
+    position: absolute;
+    top: calc(50% - 150px);
+    left: calc(50% - 150px);
+    animation: rotation .3s 1;
+    animation-delay: $delay-beetween;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+}
+
+
+//Orbit grow animation
+
+.dot-main-container {
+    position: absolute;
+    left: 100px;
+    width: 400px;
+    height: 400px;
+    transform: scale(0.5);
+    animation: orbit-grow $grow-duration 1 forwards;
+    animation-delay: $delay-first;  
+}
+
+//Arrows rotation on orbit
+
+.dot-orbit-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    opacity: 0;
+    animation: arrow-rotation 4s infinite normal backwards ease;
+    animation-delay: $delay-second;
+}
+
+//Orbit grow
+
+.dot-orbit {
+    opacity: 0;
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    left: 100px;
+    top: 0;
+    border-radius: 50%;
+    transform: scale(0.5);
+    border: $border;
+    animation: orbit-grow 1 $grow-duration forwards; 
+    animation-delay: $delay-first; 
+}
+
+//Dots shrink 
+
+.dot {
+    transform: scale(2);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: $border;
+    animation: dots-grow 1 $grow-duration forwards; 
+    animation-delay: $delay-first; 
+}
+
+//Center appear 
+
+.center {
+    transform: scale(0);
+    animation: begin 1 $center-grow-duration forwards;
+    animation-delay: $start-delay;
+}
+
+@keyframes arrow-rotation {
+    10% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(117deg);
+        opacity: 0;
+    }
+}
+@keyframes orbit-grow {
+    0% {
+        opacity: 1;
+        transform: scale(0.5) rotate(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(360deg);
+    }
+}
+@keyframes dots-grow {
+    0% {
+        transform: scale(2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes rotation {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(120deg);
+        opacity: 1;
+    }
+}
+@keyframes text-visibility {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes begin {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes dots-appear {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

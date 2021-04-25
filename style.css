@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+}
+.main-anim-container {
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+.center {
+    position: absolute;
+    top: calc(50% - 100px);
+    left: calc(50% - 100px);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: solid 1px gray;
+    line-height: 200px;
+}
+.arrows {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: solid 25px #263C7F;
+    position: absolute;
+    top: calc(50% - 150px);
+    left: calc(50% - 150px);
+    animation: rotation .5s 1;
+    animation-delay: 1s;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+}
+.arrow-first {
+    position: relative;
+    top: -26px;
+    left: calc(50% - 18px);
+}
+.arrow-second {
+    position: relative;
+    right: -90%;
+    top: 59%;
+    transform: rotate(120deg);
+}
+.arrow-third {
+    position: relative;
+    left: -7%;
+    top: 46%;
+    transform: rotate(240deg);
+}
+.arrow-top {
+    height: 15px;
+    width: 30px;
+    background-color: #fff;
+    transform: skew(35deg);
+}
+.arrow-bottom {
+    height: 15px;
+    width: 30px;
+    background-color: #fff;
+    transform: skew(-35deg);
+    /* margin-top: -1px; */
+}
+.arrow {
+    max-width: 40px;
+    margin: 0;
+    z-index: 4;
+}
+@keyframes rotation {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(120deg);
+    }
+}
+.dot {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid gray;
+}
+.dot-inside {
+    width: 10px;
+    height: 10px;
+    background-color: #263C7F;
+    border-radius: 50%;
+    position: relative;
+    top: 4px;
+    left: 4px;
+}
+.orbit-arrow {
+    height: 400px;
+    width: 400px;
+}

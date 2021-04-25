@@ -1,0 +1,223 @@
+.main-anim-container {
+  width: 600px;
+  height: 400px;
+  margin: 150px auto;
+  text-align: center;
+  position: relative; }
+  .main-anim-container * {
+    box-sizing: border-box; }
+
+.center {
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: solid 1px gray;
+  line-height: 200px; }
+
+.arrows-container {
+  width: 100%;
+  height: 100%; }
+
+.arrow {
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+  height: 30px;
+  width: 40px;
+  background-color: #fff;
+  position: absolute;
+  margin: 0;
+  z-index: 4; }
+
+.arrow-first {
+  top: -28px;
+  left: calc(50% - 18px); }
+
+.arrow-second {
+  right: -15px;
+  top: 71%;
+  transform: rotate(120deg); }
+
+.arrow-third {
+  left: -15px;
+  top: 71%;
+  transform: rotate(240deg); }
+
+.dot-inside {
+  width: 10px;
+  height: 10px;
+  background-color: #263C7F;
+  border-radius: 50%;
+  position: relative;
+  top: 4px;
+  left: 4px; }
+
+.orbit-arrow {
+  position: absolute; }
+  .orbit-arrow .upper, .orbit-arrow .bottom {
+    width: 10px;
+    height: 2px;
+    background-color: gray; }
+  .orbit-arrow .upper {
+    transform: rotate(60deg); }
+  .orbit-arrow .bottom {
+    transform: rotate(-60deg);
+    margin-top: 6px; }
+  .orbit-arrow.first {
+    left: calc(50% - 4px);
+    top: -5px; }
+  .orbit-arrow.second {
+    top: 74%;
+    left: 22px;
+    transform: rotate(-120deg); }
+  .orbit-arrow.third {
+    top: 78%;
+    right: 32px;
+    transform: rotate(120deg); }
+
+.dot-subcontainer {
+  position: relative;
+  width: 100%;
+  height: 100%; }
+
+.dot-container {
+  position: absolute;
+  transform: scale(0);
+  animation: dots-appear 1 0.2s forwards; }
+  .dot-container p {
+    transform: scale(0);
+    animation: dots-appear 1 0.2s forwards;
+    animation-delay: 3.5s;
+    text-align: center;
+    position: absolute;
+    width: 100px;
+    color: #263c7f;
+    font-family: Arial, Helvetica, sans-serif; }
+  .dot-container.first {
+    animation-delay: 1.3s;
+    left: calc(50% - 10px);
+    top: -10px; }
+    .dot-container.first p {
+      top: -100px;
+      left: -40px; }
+  .dot-container.second {
+    animation-delay: 1.6s;
+    top: 71%;
+    left: 15px; }
+    .dot-container.second p {
+      left: -120px;
+      top: 20px; }
+  .dot-container.third {
+    animation-delay: 1.9s;
+    top: 71%;
+    right: 15px; }
+    .dot-container.third p {
+      top: 20px;
+      left: 50px; }
+
+.arrows {
+  opacity: 0;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: solid 25px #263C7F;
+  position: absolute;
+  top: calc(50% - 150px);
+  left: calc(50% - 150px);
+  animation: rotation .3s 1;
+  animation-delay: 3.5s;
+  animation-direction: normal;
+  animation-fill-mode: forwards; }
+
+.dot-main-container {
+  position: absolute;
+  left: 100px;
+  width: 400px;
+  height: 400px;
+  transform: scale(0.5);
+  animation: orbit-grow 0.5s 1 forwards;
+  animation-delay: 3s; }
+
+.dot-orbit-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  opacity: 0;
+  animation: arrow-rotation 4s infinite normal backwards ease;
+  animation-delay: 4.2s; }
+
+.dot-orbit {
+  opacity: 0;
+  height: 400px;
+  width: 400px;
+  position: absolute;
+  left: 100px;
+  top: 0;
+  border-radius: 50%;
+  transform: scale(0.5);
+  border: solid 1px gray;
+  animation: orbit-grow 1 0.5s forwards;
+  animation-delay: 3s; }
+
+.dot {
+  transform: scale(2);
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: solid 1px gray;
+  animation: dots-grow 1 0.5s forwards;
+  animation-delay: 3s; }
+
+.center {
+  transform: scale(0);
+  animation: begin 1 0.5s forwards;
+  animation-delay: 0.5s; }
+
+@keyframes arrow-rotation {
+  10% {
+    opacity: 1; }
+  80% {
+    opacity: 1; }
+  100% {
+    transform: rotate(117deg);
+    opacity: 0; } }
+
+@keyframes orbit-grow {
+  0% {
+    opacity: 1;
+    transform: scale(0.5) rotate(0); }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(360deg); } }
+
+@keyframes dots-grow {
+  0% {
+    transform: scale(2); }
+  100% {
+    transform: scale(1); } }
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0); }
+  100% {
+    transform: rotate(120deg);
+    opacity: 1; } }
+
+@keyframes text-visibility {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes begin {
+  0% {
+    transform: scale(0); }
+  100% {
+    transform: scale(1); } }
+
+@keyframes dots-appear {
+  0% {
+    transform: scale(0); }
+  100% {
+    transform: scale(1); } }
