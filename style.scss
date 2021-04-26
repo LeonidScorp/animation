@@ -1,8 +1,6 @@
 
 //variables
 
-$border: solid 1px gray;
-
 $start-delay: .5s;
 $first-dot-delay: 1.3s;
 $second-dot-delay: 1.4s;
@@ -15,6 +13,12 @@ $grow-duration: .5s;
 $center-grow-duration: .5s;
 $dot-apper-duration: .2s;
 
+$blue: #263C7F;
+$gray: #cacaca;
+$dark-gray: #a0a0a0;
+$white: #fff;
+
+$border: solid 1px $gray;
 
 .main-anim-container {
     * {
@@ -30,7 +34,7 @@ $dot-apper-duration: .2s;
     position: absolute;
     padding-top: 70px;
     font-weight: 400;
-    color: #263c7f;
+    color: $blue;
     top: calc(50% - 100px);
     left: calc(50% - 100px);
     width: 200px;
@@ -51,7 +55,7 @@ $dot-apper-duration: .2s;
     clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
     height: 30px;
     width: 40px;
-    background-color: #fff;
+    background-color: $white;
     position: absolute;
     margin: 0;
     z-index: 4;
@@ -74,7 +78,7 @@ $dot-apper-duration: .2s;
 .dot-inside {
     width: 10px;
     height: 10px;
-    background-color: #263C7F;
+    background-color: $blue;
     border-radius: 50%;
     position: relative;
     top: 4px;
@@ -87,7 +91,7 @@ $dot-apper-duration: .2s;
     .upper, .bottom {
         width: 10px;
         height: 2px;
-        background-color: gray;
+        background-color: $dark-gray;
     }
     .upper {
         transform: rotate(60deg);
@@ -129,7 +133,7 @@ $dot-apper-duration: .2s;
         text-align: center;
         position: absolute;
         width: 100px;
-        color: #263c7f;
+        color: $blue;
         font-family: Arial, Helvetica, sans-serif;
     }
     &.first {
@@ -169,7 +173,7 @@ $dot-apper-duration: .2s;
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    border: solid 25px #263C7F;
+    border: solid 25px $blue;
     position: absolute;
     top: calc(50% - 150px);
     left: calc(50% - 150px);
